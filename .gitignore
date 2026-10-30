@@ -1,0 +1,22 @@
+# 打包产物
+dist/
+build/
+*.spec
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 运行时数据（用户自己的存档，不进仓库）
+pomodoro_state.json
+pomodoro_error.log
+tests/_tmp*.json
+tests/out/
+
+# 系统
+Thumbs.db
+desktop.ini
+.DS_Store
