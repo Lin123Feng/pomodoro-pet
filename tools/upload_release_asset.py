@@ -12,7 +12,10 @@ import requests
 GH = Path.home() / "bin" / "gh-tool" / "bin" / "gh.exe"
 OWNER, REPO, TAG = "Lin123Feng", "pomodoro-pet", "v1.0.0"
 SRC = Path(r"D:\Users\python\learn\dist\番茄桌宠_v1.0.zip")
-ASSET_NAME = "番茄桌宠_v1.0.zip"
+# GitHub 的 uploads 接口会把中文 filename / name 参数削掉（番茄桌宠_v1.0.zip → _v1.0.zip），
+# 试过 gh CLI 和 ?name= 两种都一样，所以文件名用 ASCII，中文放到 label 里展示。
+ASSET_NAME = "pomodoro-pet-v1.0.zip"
+ASSET_LABEL = "番茄桌宠 v1.0（Windows 免安装版）"
 
 token = subprocess.run([str(GH), "auth", "token"], capture_output=True, text=True).stdout.strip()
 if not token:
@@ -33,7 +36,7 @@ print(f"上传 {SRC.name}  {SRC.stat().st_size / 1048576:.1f} MB ...")
 with SRC.open("rb") as f:
     r = requests.post(
         f"https://uploads.github.com/repos/{OWNER}/{REPO}/releases/{rid}/assets",
-        params={"name": ASSET_NAME},
+        params={"name": ASSET_NAME, "label": ASSET_LABEL},
         headers={**h, "Content-Type": "application/zip"},
         data=f,
         timeout=1800,

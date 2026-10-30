@@ -8,7 +8,7 @@ Windows / Python 3.10+ / PyQt6，单文件程序，不需要联网、不读你�
 
 ## 下载（不想折腾代码的看这里）
 
-到 [Releases](../../releases) 下载 `番茄桌宠_v1.0.zip`，解压后：
+到 [Releases](../../releases) 下载 `pomodoro-pet-v1.0.zip`（release 页面上标注为「番茄桌宠 v1.0」），解压后：
 
 - 想最省事：双击 `PomodoroPet.exe`，右下角出现小番茄就能用了（**不用装 Python**）
 - 想要桌面图标：双击 `安装到本机.bat`，桌面会多一个「番茄桌宠」
